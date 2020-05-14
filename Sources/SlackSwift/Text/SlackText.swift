@@ -48,6 +48,6 @@ extension Slack.Text: Encodable {
 
 extension String {
 
-    var plainText: Slack.Text { Slack.Text(type: .plainText, text: self) }
+    public var plainText: Slack.Text { Slack.Text(type: .plainText, text: self) }
 
 }

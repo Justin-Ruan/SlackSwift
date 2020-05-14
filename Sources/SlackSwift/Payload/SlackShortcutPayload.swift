@@ -6,21 +6,21 @@ extension Slack {
 
     public struct ShortcutPayload: Content {
 
-        var token: String
+        internal(set) public var token: String
 
-        var type: String
+        internal(set) public var type: String
 
-        var callback_id: String
+        internal(set) public var callback_id: String
 
-        var trigger_id: String
+        internal(set) public var trigger_id: String
 
-        var responseUrl: URL
+        internal(set) public var responseUrl: URL
 
-        var user: Slack.User
+        internal(set) public var user: Slack.User
 
-        var channel: Slack.Channel?
+        internal(set) public var channel: Slack.Channel?
 
-        var team: Slack.Team?
+        internal(set) public var team: Slack.Team?
 
     }
 

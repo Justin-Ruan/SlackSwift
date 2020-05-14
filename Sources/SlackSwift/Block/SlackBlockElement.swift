@@ -138,7 +138,7 @@ extension Slack.BlockElement {
         return element
     }
 
-    static public  func checkBoxes(actionId: String,
+    static public func checkBoxes(actionId: String,
                                    options: [Option],
                                    initialOptions: [Option]? = nil,
                                    confirm: Confirm? = nil) -> Slack.BlockElement {

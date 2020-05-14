@@ -6,28 +6,28 @@ extension Slack {
 
     public struct SlashCommandPayload: Content {
 
-        var token: String
+        internal(set) public var token: String
 
-        var response_url: String
+        internal(set) public var response_url: String
 
-        var trigger_id: String?
+        internal(set) public var trigger_id: String?
 
-        var user_id: String
+        internal(set) public var user_id: String
 
-        var user: User.Profile?
+        internal(set) public var user: User.Profile?
 
-        var user_name: String?
+        internal(set) public var user_name: String?
 
-        var command: String
+        internal(set) public var command: String
 
-        var text: String
+        internal(set) public var text: String
 
-        var parameters: [String] { text.split(separator: " ").map { String($0) } }
+        public var parameters: [String] { text.split(separator: " ").map { String($0) } }
 
-        func username(on index: Int) -> String? {
+        public func username(on index: Int) -> String? {
             guard index < parameters.count else { return nil }
             let raw = parameters[index]
-            if raw.hasPrefix("<@") && raw.hasSuffix(">") && raw.index(of: "|") != nil {
+            if raw.hasPrefix("<@") && raw.hasSuffix(">") && raw.firstIndex(of: "|") != nil {
                 let content = raw.replacingOccurrences(of: "<@", with: "")
                                    .replacingOccurrences(of: ">", with: "")
                 let subParams = content.split(separator: "|").map { String($0) }
@@ -40,10 +40,10 @@ extension Slack {
             }
         }
 
-        func userId(on index: Int) -> String? {
+        public func userId(on index: Int) -> String? {
             guard index < parameters.count else { return nil }
             let raw = parameters[index]
-            if raw.hasPrefix("<@") && raw.hasSuffix(">") && raw.index(of: "|") != nil {
+            if raw.hasPrefix("<@") && raw.hasSuffix(">") && raw.firstIndex(of: "|") != nil {
                 let content = raw.replacingOccurrences(of: "<@", with: "")
                                    .replacingOccurrences(of: ">", with: "")
                 let subParams = content.split(separator: "|").map { String($0) }
@@ -54,7 +54,7 @@ extension Slack {
             }
         }
 
-        func parameter(on index: Int) -> String? {
+        public func parameter(on index: Int) -> String? {
             guard index < parameters.count else { return nil }
             return parameters[index]
         }

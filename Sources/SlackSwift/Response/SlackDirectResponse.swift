@@ -19,14 +19,14 @@ extension Slack {
 
         var blocks: [Slack.Block]?
 
-        init(type: ResponseType, text: String, isMarkDown: Bool? = nil, blocks: [Slack.Block]? = nil) {
+        public init(type: ResponseType, text: String, isMarkDown: Bool? = nil, blocks: [Slack.Block]? = nil) {
             self.type = type
             self.text = text
             self.isMarkDown = isMarkDown
 
         }
 
-        init(type: ResponseType, blocks: [Slack.Block]) {
+        public init(type: ResponseType, blocks: [Slack.Block]) {
             self.type = type
             self.blocks = blocks
         }

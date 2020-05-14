@@ -116,18 +116,18 @@ extension Slack.BlockElement: Encodable {
 
 extension Slack.BlockElement {
 
-    static func text(text: Text) -> Slack.BlockElement {
+    static public func text(text: Text) -> Slack.BlockElement {
         let element = BlockElement(type: .text)
         element.text = text
         return element
     }
 
-    static func button(actionId: String,
-                       text: String,
-                       url: String? = nil,
-                       value: String? = nil,
-                       style: ButtonStyle? = nil,
-                       confirm: Confirm? = nil) -> Slack.BlockElement {
+    static public func button(actionId: String,
+                              text: String,
+                              url: String? = nil,
+                              value: String? = nil,
+                              style: ButtonStyle? = nil,
+                              confirm: Confirm? = nil) -> Slack.BlockElement {
         let element = BlockElement(type: .button)
         element.actionId = actionId
         element.text = text.plainText
@@ -138,10 +138,10 @@ extension Slack.BlockElement {
         return element
     }
 
-    static func checkBoxes(actionId: String,
-                           options: [Option],
-                           initialOptions: [Option]? = nil,
-                           confirm: Confirm? = nil) -> Slack.BlockElement {
+    static public  func checkBoxes(actionId: String,
+                                   options: [Option],
+                                   initialOptions: [Option]? = nil,
+                                   confirm: Confirm? = nil) -> Slack.BlockElement {
         let element = BlockElement(type: .checkboxes)
         element.actionId = actionId
         element.options = options
@@ -150,10 +150,10 @@ extension Slack.BlockElement {
         return element
     }
 
-    static func datePicker(actionId: String,
-                           placeholder: String? = nil,
-                           initialValue: String? = nil,
-                           confirm: Confirm? = nil) -> Slack.BlockElement {
+    static public func datePicker(actionId: String,
+                                  placeholder: String? = nil,
+                                  initialValue: String? = nil,
+                                  confirm: Confirm? = nil) -> Slack.BlockElement {
         let element = BlockElement(type: .datePicker)
         element.actionId = actionId
         element.placeholder = placeholder
@@ -162,19 +162,19 @@ extension Slack.BlockElement {
         return element
     }
 
-    static func image(imageUrl: String, altText: String) -> Slack.BlockElement {
+    static public func image(imageUrl: String, altText: String) -> Slack.BlockElement {
         let element = BlockElement(type: .image)
         element.imageUrl = imageUrl
         element.altText = altText
         return element
     }
 
-    static func plainTextInput(actionId: String,
-                               placeholder: String? = nil,
-                               initialValue: String? = nil,
-                               multiline: Bool? = nil,
-                               minLength: Int? = nil,
-                               maxLength: Int? = nil) -> Slack.BlockElement {
+    static func public plainTextInput(actionId: String,
+                                      placeholder: String? = nil,
+                                      initialValue: String? = nil,
+                                      multiline: Bool? = nil,
+                                      minLength: Int? = nil,
+                                      maxLength: Int? = nil) -> Slack.BlockElement {
         let element = BlockElement(type: .plainTextInput)
         element.actionId = actionId
         element.placeholder = placeholder

@@ -169,7 +169,7 @@ extension Slack.BlockElement {
         return element
     }
 
-    static func public plainTextInput(actionId: String,
+    static public func plainTextInput(actionId: String,
                                       placeholder: String? = nil,
                                       initialValue: String? = nil,
                                       multiline: Bool? = nil,

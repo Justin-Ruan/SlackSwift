@@ -86,7 +86,7 @@ extension Slack.SlackMethod {
 
         }
 
-        internal func encodeContent(on req: Request) throws {
+        internal func encodeContent(on req: (inout ClientRequest)) throws {
             switch self {
             case .open(let triggerId, let view):
                 try req.content.encode(ViewPayload.open(triggerId: triggerId, view: view))
